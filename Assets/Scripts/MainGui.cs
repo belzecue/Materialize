@@ -81,7 +81,7 @@ public class MainGui : MonoBehaviour {
 	public AlignmentGui AlignmentGuiScript;
 
 	public GameObject SuggestionGuiObject;
-	SuggestionGui SuggestionGuiScript;
+	//SuggestionGui SuggestionGuiScript;
 
 	public GameObject SaveLoadProjectObject;
 	SaveLoadProject SaveLoadProjectScript;
@@ -119,7 +119,7 @@ public class MainGui : MonoBehaviour {
 	public GameObject testObjectCylinder;
 	public GameObject testObjectSphere;
 
-    //public Material skyboxMaterial;
+	//public Material skyboxMaterial;
 	public ReflectionProbe reflectionProbe;
 	public Cubemap[] CubeMaps;
 	int selectedCubemap = 0;
@@ -211,7 +211,7 @@ public class MainGui : MonoBehaviour {
 
 		//fileBrowser = this.GetComponent<FileBrowser> ();
 
-        PropertyCompShader = Shader.Find ("Hidden/Blit_Property_Comp");
+		PropertyCompShader = Shader.Find ("Hidden/Blit_Property_Comp");
 		PropertyCompMaterial = new Material (PropertyCompShader);
 
 		thisCamera = Camera.main;
@@ -240,7 +240,7 @@ public class MainGui : MonoBehaviour {
 		MaterialGuiScript = MaterialGuiObject.GetComponent<MaterialGui>();
 		PostProcessGuiScript = PostProcessGuiObject.GetComponent<PostProcessGui> ();
 		TilingTextureMakerGuiScript = TilingTextureMakerGuiObject.GetComponent<TilingTextureMakerGui>();
-		SuggestionGuiScript = SuggestionGuiObject.GetComponent<SuggestionGui>();
+		//SuggestionGuiScript = SuggestionGuiObject.GetComponent<SuggestionGui>();
 		SaveLoadProjectScript = SaveLoadProjectObject.GetComponent<SaveLoadProject>();
 		CommandListExecutorScript = CommandListExecutorObject.GetComponent<CommandListExecutor> ();
 		SettingsGuiScript = SettingsGuiObject.GetComponent<SettingsGui> ();
@@ -460,9 +460,9 @@ public class MainGui : MonoBehaviour {
 		}
 		GUI.enabled = true;
 
-		if (GUI.Button (new Rect(Screen.width - 260, 10, 140, 30), "Make Suggestion")) {
-			SuggestionGuiObject.SetActive(true);
-		}
+		//if (GUI.Button (new Rect(Screen.width - 260, 10, 140, 30), "Make Suggestion")) {
+		//	SuggestionGuiObject.SetActive(true);
+		//}
 
 		if( hideGui == false ){
 			if (GUI.Button (new Rect(Screen.width - 110, 10, 100, 30), "Hide Gui")) {
@@ -1238,7 +1238,7 @@ public class MainGui : MonoBehaviour {
 				selectedCubemap = 0;
 			}
 
-            //skyboxMaterial.SetTexture ("_Tex", CubeMaps[selectedCubemap] );
+			//skyboxMaterial.SetTexture ("_Tex", CubeMaps[selectedCubemap] );
 			Shader.SetGlobalTexture ("_GlobalCubemap", CubeMaps[selectedCubemap] );
 			reflectionProbe.RenderProbe();
 		}
