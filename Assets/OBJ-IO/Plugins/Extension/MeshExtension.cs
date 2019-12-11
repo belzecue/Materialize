@@ -163,7 +163,7 @@ namespace UnityExtension
                 m_Vertices = new List<Vector3>(lMesh.vertices),
                 m_UVs = new List<Vector2>(lMesh.uv),
                 m_Normals = new List<Vector3>(lMesh.normals),
-                m_UV2s = new List<Vector2>(lMesh.uv1),
+                m_UV2s = new List<Vector2>(lMesh.uv2),
                 m_Colors = new List<Color>(lMesh.colors)
             };
 
@@ -299,7 +299,7 @@ namespace UnityExtension
                 Marshal.Copy(lData, lDataOffset, lHandle.AddrOfPinnedObject(), lDeltaOffset);
                 lHandle.Free();
                 lDataOffset += lDeltaOffset;
-                lMesh.uv1 = lUVs;
+                lMesh.uv2 = lUVs;
                 Debug.Log("UV1 Count : " + lUVs.Length);
                 lUVs = null;
             }
@@ -463,7 +463,7 @@ namespace UnityExtension
             lUVs = null;
 
             //  UV Channel 1
-            lUVs = lMesh.uv1;
+            lUVs = lMesh.uv2;
             if (lUVs.Length > 0)
             {
                 lUV1Flag = true;
